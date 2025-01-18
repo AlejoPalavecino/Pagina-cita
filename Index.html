@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Aceptas una cita?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      /* Fondo con la imagen */
+      background: url("fondo.webp") no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8);
+      opacity: 0;
+      animation: fadeInScale 1s ease forwards;
+      max-width: 90%;
+    }
+
+    .container img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #7d74fa;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #444;
+      animation: fadeInText 1s ease forwards 0.5s;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeInButtons 1s ease forwards 1s;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button.yes {
+      background-color: #28a745;
+      color: white;
+    }
+
+    button.no {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeInScale {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInButtons {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Foto personalizada -->
+    <img src="TEAMO.jpg" alt="Foto personal">
+    <h1>¿Aceptarías tener una cita conmigo? 😊</h1>
+    <div class="buttons">
+      <button class="yes" onclick="accept()">¡Sí!</button>
+      <button class="no" onclick="reject()">No, gracias</button>
+    </div>
+  </div>
+
+  <script>
+    function accept() {
+      const container = document.querySelector('.container');
+      container.innerHTML = `
+        <h1>¡TE AMO CHULICHU! 🥰</h1>
+        <p>¡Preparate esta noche que tendremos una velada hermosa!</p>
+      `;
+      container.style.animation = "fadeInScale 1s ease forwards";
+    }
+
+    function reject() {
+      const container = document.querySelector('.container');
+      container.innerHTML = `
+        <h1>No pasa nada 😢</h1>
+        <p>¡Te amo igual amor!</p>
+      `;
+      container.style.animation = "fadeInScale 1s ease forwards";
+    }
+  </script>
+</body>
+</html>
